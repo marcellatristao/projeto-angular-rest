@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginServiceService } from './service/login-service.service';
 
 @Component({
@@ -6,7 +6,6 @@ import { LoginServiceService } from './service/login-service.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
   title = 'angular-rest';
-
 }

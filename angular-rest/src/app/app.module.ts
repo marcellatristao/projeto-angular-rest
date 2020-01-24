@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from "./AppComponent";
 import {FormsModule} from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component'; /*Requisições Ajax*/
+import { HomeComponent } from './home/home.component'; /*Requisiï¿½ï¿½es Ajax*/
 import { RouterModule, Routes } from '@angular/router'
 import { ModuleWithProviders} from '@angular/compiler/src/core';
 import { LoginComponent } from './login/login.component';
+import { HttpInterceptorModule } from './service/header-interceptor.service';
 
 export const appRouters: Routes = [
 
@@ -31,7 +32,8 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    routes
+    routes,
+    HttpInterceptorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
