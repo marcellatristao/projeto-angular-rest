@@ -11,6 +11,7 @@
             <td>{{usuario.id}}</td>
             <td>{{usuario.nome}}</td>
             <td>{{usuario.cpf}}</td>
+            <td><button (click)="deleteUsuario(usuario.id)" class="btn btn-primary">Delete</button></td>
         </tr>
     </tbody>
 </table>
