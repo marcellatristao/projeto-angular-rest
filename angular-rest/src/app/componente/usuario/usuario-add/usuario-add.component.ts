@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/model/user';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +10,37 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UsuarioAddComponent implements OnInit {
 
-  constructor(private routeActive: ActivatedRoute) { }
+  usuario = new User();
+
+  constructor(private routeActive: ActivatedRoute, private userService: UsuarioService) { }
 
   ngOnInit() {
     let id = this.routeActive.snapshot.paramMap.get('id');
 
-    if(id!= null){
-      console.log('Valor sendo editado: ' + id);
+    if (id != null) {
+      this.userService.getUsuario(id).subscribe(data => {
+        this.usuario = data;
+      });
     }
+  }
+
+  salvarUsuario() {
+    if (this.usuario.id != null && this.usuario.id.toString().trim != null) { /*Atualizando ou editando*/
+      this.userService.updateUsuario(this.usuario).subscribe(data => {
+        this.usuario = new User();
+        console.info("Usuario Atualizado" + data);
+      });
+
+    } else {
+      this.userService.salvarUsuario(this.usuario).subscribe(data => { /*Salvando novo usuario*/
+        this.usuario = new User();
+        console.info("Gravou usuario:" + data);
+      });
+    }
+  }
+
+  novo(){
+    this.usuario = new User();
   }
 
 }
