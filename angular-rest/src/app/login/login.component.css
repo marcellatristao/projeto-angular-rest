@@ -1,4 +1,15 @@
 form {
-  padding: 15% 30% 10% 30%;
+  padding: 10% 35% 10% 35%;
+  background-color: #f8f9fa;
 }
 
+body{  
+  background-color: #f8f9fa;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}

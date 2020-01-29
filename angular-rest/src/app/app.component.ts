@@ -11,20 +11,29 @@ export class AppComponent implements OnInit {
 
     title = 'angular-rest';
 
-    constructor(private router: Router){
-        
+    constructor(private router: Router) {
+
     }
 
-    ngOnInit(): void{
-        
-        if(localStorage.getItem('token') == null){
+    ngOnInit(): void {
+
+        if (localStorage.getItem('token') == null) {
             this.router.navigate(['login']);
         }
     }
 
-    public sair(){
+    public sair() {
         localStorage.clear();
         this.router.navigate(['login']);
+    }
+
+    public esconderBarra() {
+        if (localStorage.getItem('token') != null &&
+            localStorage.getItem('token').toString().trim() != null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }
