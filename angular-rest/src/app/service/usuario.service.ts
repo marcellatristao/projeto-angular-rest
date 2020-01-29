@@ -16,7 +16,7 @@ export class UsuarioService {
     return this.http.get<any>(AppConstants.baseUrl);
   }
 
-  getUsuario(id: String) : Observable<any>{
+  getUsuario(id: String): Observable<any> {
     return this.http.get<any>(AppConstants.baseUrl + id);
   }
 
@@ -29,12 +29,21 @@ export class UsuarioService {
     // http://localhost:8080/cursopringrestapi/usuario/usuarioPorNome/marcella
   }
 
-  salvarUsuario(user): Observable<any>{
+  salvarUsuario(user): Observable<any> {
     return this.http.post<any>(AppConstants.baseUrl, user);
   }
 
-  updateUsuario(user): Observable<any>{
+  updateUsuario(user): Observable<any> {
     return this.http.put<any>(AppConstants.baseUrl, user);
+  }
+
+  userAutenticado() {
+    if (localStorage.getItem('token') != null &&
+      localStorage.getItem('token').toString().trim() != null) {
+      return true;
+    }else{
+      return false;
+    }
   }
 
 }
