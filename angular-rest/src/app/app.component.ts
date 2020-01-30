@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
 
     title = 'angular-rest';
+    userCpf: string;
 
     constructor(private router: Router) {
 
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
         if (localStorage.getItem('token') == null) {
             this.router.navigate(['login']);
         }
+
     }
 
     public sair() {

@@ -35,7 +35,7 @@
         <div class="form-group col-md-3">
             <label for="cpf">CPF</label>
             <span style="color: red; font-size: 23px;"> *</span>
-            <input type="text" [(ngModel)]="usuario.cpf" #cpfValidate="ngModel" class="form-control" id="cpf" name="cpf" required="true" autocomplete="false" />
+            <input type="text" [(ngModel)]="usuario.cpf" mask="000.000.000-00" #cpfValidate="ngModel" class="form-control" id="cpf" name="cpf" required="true" autocomplete="false"/>
         </div>
     </div>
 

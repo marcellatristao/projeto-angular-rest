@@ -10,7 +10,7 @@
       <input type="email" class="form-control" #email="ngModel" [(ngModel)]="usuario.login" id="login" name="username"
         placeholder="Informe o Username" required />
 
-      <!-- Alerta de digite um email/senha -->
+      <!-- Alerta de digite um email -->
       <div *ngIf="email.invalid" class="alert alert-danger">
         Login deve ser informado!
       </div>
